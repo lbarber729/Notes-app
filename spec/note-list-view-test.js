@@ -1,18 +1,17 @@
 function testCanListNotes(){
-  var note1 = new Note("First Note");
-  var note2 = new Note("Second Note");
   var noteList = new NoteList();
+  var note1 = new Note("This is a very long note");
   var noteListView = new NoteListView(noteList);
-  noteList.addNote(note1.text);
-  noteList.addNote(note2.text);
-  assert.isEqualTo(noteListView.listNotes(), "<ul><li><div>First Note</div></li><li><div>Second Note</div></li></ul>")
+  noteList.addNote(note1);
+  assert.isEqualTo(noteListView.listNotes(), "<ul><li><div><a href='http://localhost:8080#notes/2'> This is a very long </a></div></li></ul>")
 };
 
 testCanListNotes();
 
 // function testWontListWhenNoNotes(){
-//   var note = new Note();
-//   assert.isEqualTo(note.listNotes(), "No Notes!")
+//   var noteList = new NoteList();
+//   var noteListView = new NoteListView(noteList);
+//   assert.isEqualTo(noteLListView.listNotes(), "No Notes!")
 //   };
 //
 // testWontListWhenNoNotes();
